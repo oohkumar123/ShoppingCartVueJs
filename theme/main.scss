@@ -1,0 +1,93 @@
+@import "_colors";
+@import "reset";
+@import "_breakpoints";
+@import "_mixins";
+$gap:20px;
+$gapsm:15px;
+
+
+body {
+    margin-top: $gap;;
+    padding: 0 $gap;
+    background-color: black;
+
+    // @include xl {
+    //     background-color: $colorA;
+    // }
+    // @include lg {
+    //     background-color: $colorB;
+    // }
+    // @include md {
+    //     padding: 0 20px;
+    //     background-color: $colorC;
+    // }
+    // @include sm {
+    //     background-color: $colorD;
+    // }
+    // @include xs {
+    //     padding: 0 20px;
+    //     background-color: $colorE;
+    // }
+
+    .container {
+        max-width: 1200px;
+        background-color: black;
+        margin: auto;
+        display: grid;
+        gap: $gap;
+        * {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // outline: 1px solid $colorA;
+            // outline-offset: 4px;
+            color: white;
+            font-size: 25px;;
+
+        }
+
+        grid-template-columns: minmax(175px, 1fr) 4fr;
+        grid-template-areas: "header header" "nav main" "footer footer";
+
+        @include lg {
+            gap: $gapsm;
+
+        }
+        @include md {
+            grid-template-columns: 1fr;
+            grid-template-areas: "header" "nav" "main" "footer";
+
+        }
+
+        header {
+            grid-area: header;
+            background-color: $colorA;
+            height: 100px;
+            border-radius: 20px;
+        }
+        nav {
+            grid-area: nav;
+            background-color: $colorC;
+            height: 500px;
+            @include md {
+                height: 100px;
+            }
+            border-radius: 20px;
+        }
+        main {
+            grid-area: main;
+            background-color: $colorB;
+            border-radius: 20px;
+            @include md {
+                height: 100px;
+            }
+        }
+        footer {
+            grid-area: footer;
+            background-color: $colorD;
+            height: 100px;
+            border-radius: 20px;
+        }
+    }
+}
