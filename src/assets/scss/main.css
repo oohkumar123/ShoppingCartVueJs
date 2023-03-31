@@ -88,13 +88,13 @@ body .container header {
 }
 body .container nav {
   grid-area: nav;
-  background-color: #ba8f95;
+  background-color: #B89EA1;
 }
 body .container main {
   grid-area: main;
-  background-color: #897c80;
+  background-color: #cdba93;
 }
 body .container footer {
   grid-area: footer;
-  background-color: #cab6cd;
+  background-color: #9AADB8;
 }/*# sourceMappingURL=main.css.map */
