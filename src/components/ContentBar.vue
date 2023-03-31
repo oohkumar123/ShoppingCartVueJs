@@ -7,7 +7,7 @@
     <main><router-view/></main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 nav {
     text-align: center;
     display: flex;
