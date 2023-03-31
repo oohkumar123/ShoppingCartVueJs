@@ -1,13 +1,13 @@
 <template>
-    <div class="about">ABOUT</div>
+    <footer>FOOTER</footer>
 </template>
 
 <style lang="scss" scoped>
-.about {
+footer {
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 50px;
 }
 </style>
