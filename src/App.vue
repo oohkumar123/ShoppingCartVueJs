@@ -8,20 +8,21 @@
 
 <script>
 // @ is an alias to /src
-import HeaderBar from '@/components/HeaderBar.vue';
-import ContentBar from '@/components/ContentBar.vue';
-import FooterBar from '@/components/FooterBar.vue';
+import HeaderBar from "@/components/HeaderBar.vue";
+import ContentBar from "@/components/ContentBar.vue";
+import FooterBar from "@/components/FooterBar.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HeaderBar,
-    ContentBar,
-    FooterBar,
-  }
-}
+    name: "App",
+    components: {
+        HeaderBar,
+        ContentBar,
+        FooterBar,
+    },
+};
 </script>
 
 <style lang="scss">
-#app {}
+#app {
+}
 </style>

@@ -1,11 +1,27 @@
 <template>
     <nav>
-        <router-link to="/category1">Category 1</router-link>
-        <router-link to="/category2">Category 2</router-link>
-        <router-link to="/category3">Category 3</router-link>
+        <div v-for="category in categories" :key="category.id">
+            <router-link :to="`/categories/${category.id}`">{{ category.title }}</router-link>
+        </div>
     </nav>
     <main><router-view/></main>
 </template>
+
+<script>
+export default {
+    name: "Category", 
+    data() {
+        return {
+            categories: [
+                {id: 'all',title: 'All'},
+                {id: '123',title: 'Fabulous Widgets'},
+                {id: '456',title: 'Great Widgets'},
+                {id: '789',title: 'Ok Widgets'},
+            ]
+        }
+    }
+}
+</script>
 
 <style lang="scss" scoped>
 nav {
