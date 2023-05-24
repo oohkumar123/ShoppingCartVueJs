@@ -1,22 +1,32 @@
 <template>
-  <div class="cart">Cart</div>
+    <div class="cart">
+        <CartTitle title="Shopping Cart"/>
+        <CartContents parent="cart"/>
+    </div>
 </template>
+<script>
+import CartContents from "@/views/sub-views/CartContents.vue";
+import CartTitle from "@/views/sub-views/CartTitle.vue";
+
+export default {
+    name: "CartView",
+    components: {
+        CartContents,
+        CartTitle
+    }
+}
+</script>
 
 <style lang="scss" scoped>
 .cart {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 30px;
-    gap:10px;
-    padding: 10px 10px 10px 20px;
-    height: 100%;
-    text-transform: uppercase;
-    a {
-        color:white;
-        text-decoration: none;
+    padding-top:10px;
+    h2 {
+        text-align:center;
+        font-size: 30px;
+        padding: 15px 0 5px 0;
+        font-weight:600;
+        color: white;
+        text-shadow: 2px 2px 3px #000000;
     }
 }
 </style>

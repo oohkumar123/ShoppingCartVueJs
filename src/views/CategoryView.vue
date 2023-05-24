@@ -5,16 +5,14 @@
         </h2>
         <div class="product-grid">
             
-            <div v-for="product in displayProducts($route.params.id)" :key="product.id" class="product-box">
+            <div v-for="product in displayProducts(this.id)" :key="product.id" class="product-box">
                 <div class="image">
                     <img :src="product.img" alt="">
                 </div>
                 <div class="desc">
-                    <!-- <p class="id">ID: {{product.id}}</p> -->
                     <p class="name">{{product.name}}</p>
                     <p class="descrip">{{product.desc}}</p>
                     <p class="price">${{product.price}}</p>
-                    <!-- <p class="cat_id">Category ID: {{product.cat_id}}</p> -->
                 </div>
                 <div class="btn"><router-link :to="{ name: 'product', params: { id: product.id }}">More Info</router-link></div>
             </div>
@@ -24,11 +22,13 @@
 
 <script>
 export default {
+    name: "CategoryView", 
+    props: ['id'],
     data() {
         return {
             categories: [],
             products: [],
-            category: []
+            category: [],
         }
     },
     mounted() {
@@ -43,7 +43,7 @@ export default {
             return (id !='all') ? this.products.filter( (p) => p.cat_id == id ) : this.products;
         },
         categoryTitle() {
-            this.category = this.categories.filter( (c) => c.id == this.$route.params.id )[0];
+            this.category = this.categories.find( (c) => c.id == this.id );
         }
     }
 }

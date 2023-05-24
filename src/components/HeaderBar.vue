@@ -1,14 +1,30 @@
 <template>
     <header class="header">
         <h1>Wonderful Widgets Inc.</h1>  
-        <div class="navbar">
+        <div class="navbar" ref="navbar">
             <router-link to="/">Home</router-link>
             <router-link to="/about">About</router-link>
-            <router-link to="/cart">Cart</router-link>
+            <router-link to="/cart" class="cart" v-if="this.$store.state.cartQuantity>0" :data-before="this.$store.state.cartQuantity">Cart</router-link>
+            <router-link to="/cart" v-else>Cart</router-link>
             <router-link to="/account">Account</router-link>
         </div>
     </header>
 </template>
+<script>
+
+export default {
+    name: "HeaderBar", 
+    data() {
+        return {
+
+        }
+    },
+    beforeMount() {},
+    mounted() {},
+    updated() {},
+    methods: {}
+}
+</script>
 
 <style lang="scss" scoped>
 .header {
@@ -47,6 +63,7 @@
             font-size: 20px;
             text-decoration: none;
             text-shadow: 2px 2px 2px black;
+            position: relative;
             &:hover {
                 color:$colorC;
             }
@@ -56,6 +73,17 @@
             }
             @include sm {
                 font-size: 15px;
+            }
+            &.cart::before {
+                content: attr(data-before);
+                background-color: white;
+                color: black;
+                border-radius: 15px;
+                font-size: 11px;
+                padding: 2px 5px;
+                position: absolute;
+                top: 0;
+                right:-14px;
             }
 
         }

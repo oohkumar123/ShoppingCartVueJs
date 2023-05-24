@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
-import CartView from "../views/CartView.vue";
 import AccountView from "../views/AccountView";
-import Category from "../views/Category";
-import Product from "../views/Product";
+import CategoryView from "../views/CategoryView";
+import ProductView from "../views/ProductView";
+import CartView from "../views/CartView.vue";
+import CheckoutView from "../views/CheckoutView";
+import SaleCompleteView from "../views/SaleCompleteView";
+import NotFound from "../views/NotFound";
 
 const routes = [
     {
@@ -18,11 +21,6 @@ const routes = [
         component: AboutView,
     },
     {
-        path: "/cart",
-        name: "cart",
-        component: CartView,
-    },
-    {
         path: "/account",
         name: "account",
         component: AccountView,
@@ -30,12 +28,37 @@ const routes = [
     {
         path: "/categories/:id",
         name: "category",
-        component: Category,
+        component: CategoryView,
+        props: true
     },
     {   path: "/product/:id", 
         name: "product", 
-        component: Product,
+        component: ProductView,
+        props: true
     },
+    {  
+        path: "/cart/", 
+        name: "cart", 
+        component: CartView,
+        props: true
+    },
+    {  
+        path: "/checkout/", 
+        name: "checkout", 
+        component: CheckoutView,
+        props: true
+    },
+    {  
+        path: "/salecomplete/:order_id?", 
+        name: "salecomplete", 
+        component: SaleCompleteView,
+        props: true
+    },
+    {  
+        path: "/:pathMatch(.*)", 
+        component: NotFound,
+    },
+
 ];
 
 const router = createRouter({

@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <div v-for="category in categories" :key="category.id">
+        <div v-for="category in this.$store.getters.getCategories" :key="category.id">
             <router-link :to="`/categories/${category.id}`">{{ category.title }}</router-link>
         </div>
     </nav>
@@ -9,17 +9,7 @@
 
 <script>
 export default {
-    name: "Category", 
-    data() {
-        return {
-            categories: [
-                {id: 'all',title: 'All'},
-                {id: '123',title: 'Fabulous Widgets'},
-                {id: '456',title: 'Great Widgets'},
-                {id: '789',title: 'Ok Widgets'},
-            ]
-        }
-    }
+    name: "Category"
 }
 </script>
 
@@ -37,6 +27,13 @@ nav {
     a {
         color:white;
         text-decoration: none;
+        &.router-link-active {
+            color:black;
+        }
+        &.router-link-active:before {
+            content: ">> "
+        }
     }
+
 }
 </style>

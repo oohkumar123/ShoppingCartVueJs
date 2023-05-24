@@ -8,7 +8,8 @@
                 <p class="name">{{ product.name }}</p>
                 <p class="descrip">{{ product.desc }}</p>
                 <p class="price">${{ product.price }}</p>
-                <div class="btn"><a href="">Buy</a></div>
+                <div class="btn"><a href="#" v-on:click.prevent="addProductToCart()">Buy</a></div>
+                <p class="product-added" v-if="showhide">Your product has been added</p>
             </div>
 
         </div>
@@ -16,20 +17,25 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex' 
-
 export default {
-    name: "Category", 
+    name: "ProductView", 
+    props: ['id'],
     data() {
         return {
-            product:[]
+            product:[],
+            products: this.$store.getters.getProducts,
+            showhide: false
         }
     },
     mounted() {
-        this.product = this.$store.getters.getProducts.filter((p) => p.id == this.$route.params.id).pop();
+        this.product = this.products.find((p) => p.id == this.id);
     },
-    computed: {},
-    methods: {}
+    methods: {
+        addProductToCart() {
+          this.$store.commit('addProductToCart', this.product.id);
+          this.showhide = true;
+        }
+    }
 }
 </script>
 
@@ -72,6 +78,12 @@ export default {
             .price {
                 font-size:16px;
                 font-weight: 600
+            }
+            .product-added  {
+                padding-top:10px;
+                font-size:16px;
+                font-weight: 600;
+                color: red;
             }
 
         }
