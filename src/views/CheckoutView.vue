@@ -145,11 +145,19 @@ export default {
         display:grid;
         grid-template-columns: 2fr 1fr;
         gap:20px;
+
+        @include sm {
+            grid-template-columns: 1fr;
+            gap:20px;
+        }
         
         .customer-area {
             flex: 1;
             padding:20px;
             padding-left:0;
+            @include sm {
+                padding-left:20px;
+            }
             .customer-details {
                 padding:10px;
                 background-color: white;

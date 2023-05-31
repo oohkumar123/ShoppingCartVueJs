@@ -9,7 +9,7 @@
                 <p class="descrip">{{ product.desc }}</p>
                 <p class="price">${{ product.price }}</p>
                 <div class="btn"><a href="#" v-on:click.prevent="addProductToCart()">Buy</a></div>
-                <p class="product-added" v-if="showhide">Your product has been added</p>
+                <p class="product-added" v-if="showhide">Your product has been added <br><router-link to="/cart">Click here to go cart</router-link></p>
             </div>
 
         </div>
@@ -48,7 +48,7 @@ export default {
     padding: 20px;
     
     @include sm {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
     
     .image-box {
@@ -83,8 +83,15 @@ export default {
                 padding-top:10px;
                 font-size:16px;
                 font-weight: 600;
+                line-height:175%;
                 color: red;
-            }
+                a {
+                    color: red
+                }
+                @include sm {
+                    text-align: center;
+                }
+           }
 
         }
         

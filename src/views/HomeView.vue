@@ -55,62 +55,66 @@ export default {
 <style lang="scss" scoped>
 .category {
     padding-top:10px;
-    h2 {
-        text-align:center;
-        font-size: 30px;
-        padding: 15px 0 5px 0;
-        font-weight:600;
-        color: white;
-        text-shadow: 2px 2px 3px #000000
-    }
     .marketing-grid {
         padding: 20px;
         padding-bottom: 0;
 
         .marketing-box  {
-                padding:10px;
-                background-color: white;
-                border-radius: 15px;
-                height:350px;
-                position: relative;
+            padding:10px;
+            background-color: white;
+            border-radius: 15px;
+            height:350px;
+            @include sm {
+                height:auto;
+            }
 
-                img {
-                    width:100%;
-                    object-fit: cover;
-                    height:100%;
+            position: relative;
+
+            img {
+                width:100%;
+                object-fit: cover;
+                height:100%;
+            }
+            
+            .text {
+                position: absolute;
+                top:0;
+                left:0;
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width:100%;
+                height:100%;
+
+                h1 {
+                    text-align:center;
+                    color:black;
+                    font-size: clamp(29px, 4vw, 50px);
+                    font-weight:700;
+                    text-shadow:3px 3px 5px #ffffff;
+                    margin-bottom:25px;
+                    line-height: 120%;
+                    @include sm {
+                        padding: 0 41px;
+                        padding-bottom: 0;
+                    }
                 }
                 
-                .text {
-                    position: absolute;
-                    top:0;
-                    left:0;
-                    display:flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    width:100%;
-                    height:100%;
-
-                    h1 {
-                        text-align:center;
-                        color:black;
-                        font-size:50px;
-                        font-weight: 700;
-                        text-shadow: 3px 3px 5px #ffffff;
-                        margin-bottom:25px;
-                    }
-                    p {
-                        color:$colorB;
-                        font-size:24px;
-                        font-weight: 600;
-                        text-shadow: 3px 3px 5px #000000;
-
+                p {
+                    text-align:center;
+                    color:$colorB;
+                    font-weight: 600;
+                    text-shadow: 3px 3px 5px #000000;
+                    font-size: clamp(19px, 3vw, 24px);
+                    width: clamp(300px, 50%, 100%);
+                    @include sm {
+                        padding: 0 41px;
                     }
                 }
+            }
         }
-
     }
-    
     
     .product-grid {
         display: grid;
@@ -118,7 +122,7 @@ export default {
         gap:15px;
         padding: 20px;
         @include sm {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
         }
         
         .product-box {

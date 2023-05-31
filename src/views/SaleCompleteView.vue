@@ -44,7 +44,7 @@
                         <div class="form-row"><label>City:</label> <span>{{sale.shippingAddress.city}}</span></div>
                         <div class="form-row"><label>Zip:</label> <span>{{sale.shippingAddress.zip}}</span></div>
                         <div class="form-row"><label>Shipping Cost:</label> <span>${{sale.shippingCharge}}</span></div>
-                        <div class="form-row"><label>Shipping Method:</label> <span>${{sale.shippingMethod}}</span></div>
+                        <div class="form-row"><label>Shipping Method:</label> <span>{{sale.shippingMethod}}</span></div>
                         <div class="form-row"><label>Shipping Status:</label> <span style="color: green">{{sale.shippingStatus}}</span></div>
                     </div>
                 </div>
@@ -143,6 +143,11 @@ export default {
     .sale-complete-area {
         width: 550px;
         margin: auto;
+        
+        @include sm {
+            width: auto;
+        }
+        
         .cart-area {
             display: block;
             padding: 20px;
@@ -153,9 +158,12 @@ export default {
                 background-color: white;
                 box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
                 border-radius: 15px;
+                margin-bottom:20px;
                 display: grid;
                 grid-template-columns: 150px 1fr 130px;
-                margin-bottom:20px;
+                @include sm {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
                 
                 .image {
                     img {
@@ -183,7 +191,10 @@ export default {
                     }
                     .price {
                         font-size:16px;
-                        font-weight: 400
+                        font-weight: 400;
+                        @include sm {
+                            font-size:16px;
+                        }
                     }
                 }
                 

@@ -6,7 +6,7 @@
             </div>
             <div class="desc">
                 <p class="name">{{product.name}}</p>
-                <p class="price">${{product.price}}</p>
+                <p class="price">${{product.price}} each</p>
             </div>
             <div class="info">
                 <div class="update" v-if="parent == 'cart'"><input type="text" v-model="product.quantity"><button class="btn" @click="updateCart(product)">Update</button></div>
@@ -84,16 +84,22 @@ export default {
     .cart-area {
         display: block;
         padding: 20px;
-        padding-right: 0;
+        @include sm {
+            padding-bottom:0;
+        }
+
         
         .cart-product {
             padding:10px;
             background-color: white;
             border-radius: 15px;
             display: grid;
-            grid-template-columns: 150px 1fr 130px;
             margin-bottom:20px;
-            
+            grid-template-columns: 150px 1fr 130px;
+            @include sm {
+                grid-template-columns: 1fr;
+            }
+
             &.no-products {
                 grid-template-columns: 1fr;
                 padding: 10px 0;
@@ -117,6 +123,10 @@ export default {
                     max-width:150px;
                     min-width: 80px;
                     border-radius:10px;
+                    @include sm {
+                        max-width:100%;
+                        padding-bottom:5px;
+                    }
                 }
             }
             
@@ -126,6 +136,10 @@ export default {
                 padding-left:10px;
                 padding-right:10px;
                 line-height: 130%;
+                @include sm {
+                    padding: 0;
+                    padding-bottom: 20px;
+                }
                 .name {
                     font-size:16px;
                     font-weight: 600;
@@ -135,8 +149,9 @@ export default {
                     font-weight: 400;
                 }
                 .price {
-                    font-size:16px;
-                    font-weight: 400
+                    font-size:14px;
+                    font-weight: 400;
+                    
                 }
             }
             
@@ -147,6 +162,7 @@ export default {
                 padding-right:10px;
                 width:130px;
                 padding-top: 5px;
+                
                 &.checkout {
                     justify-content: flex-start;
                 }
@@ -177,17 +193,27 @@ export default {
                     font-weight: 400;
                     font-size:20px;
                     text-align:center;
+                    @include sm {
+                        text-align:left;
+                    }
                 }
                 .grand-total {
                     font-weight: 400;
                     font-size:24px;
                     text-align:center;
+                    @include sm {
+                        text-align:left;
+                    }
                 }
             }
             .btn-checkout {
                 display:flex;
                 justify-content: center;
                 align-items:center;
+                @include sm {
+                    order:2;
+                }
+
                 .btn {
                     font-size:18px;
                     padding:4px 15px;

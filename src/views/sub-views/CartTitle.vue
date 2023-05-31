@@ -13,7 +13,7 @@
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
     h2 {
         text-align:center;
         font-size: 30px;

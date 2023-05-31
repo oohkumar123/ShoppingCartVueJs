@@ -68,7 +68,7 @@ export default {
         gap:15px;
         padding: 20px;
         @include sm {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
         }
         
         .product-box {
