@@ -90,7 +90,7 @@ export default {
                 h1 {
                     text-align:center;
                     color:black;
-                    font-size: clamp(29px, 4vw, 50px);
+                    font-size: clamp(21px, 5vw, 50px);
                     font-weight:700;
                     text-shadow:3px 3px 5px #ffffff;
                     margin-bottom:25px;
@@ -106,7 +106,7 @@ export default {
                     color:$colorB;
                     font-weight: 600;
                     text-shadow: 3px 3px 5px #000000;
-                    font-size: clamp(19px, 3vw, 24px);
+                    font-size: clamp(17px, 3vw, 24px);
                     width: clamp(300px, 50%, 100%);
                     @include sm {
                         padding: 0 41px;
@@ -121,6 +121,9 @@ export default {
         grid-template-columns: 1fr 1fr 1fr;
         gap:15px;
         padding: 20px;
+        @include lg {
+            grid-template-columns: 1fr 1fr;
+        }
         @include sm {
             grid-template-columns: 1fr;
         }

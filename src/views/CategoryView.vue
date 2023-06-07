@@ -7,7 +7,7 @@
             
             <div v-for="product in displayProducts(this.id)" :key="product.id" class="product-box">
                 <div class="image">
-                    <img :src="product.img" alt="">
+                    <img :src="product.img" alt=""> 
                 </div>
                 <div class="desc">
                     <p class="name">{{product.name}}</p>
